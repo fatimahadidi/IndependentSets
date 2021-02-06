@@ -84,16 +84,11 @@ The following input corresponds to a graph of five nodes and five edges.
 
 CS 4820 Problem Set X
 
-Kleinberg, Jon, and Éva Tardos. Algorithm Design. Pearson, 2014.
+Kleinberg, Jon, and Ã‰va Tardos. Algorithm Design. Pearson, 2014.
 
 [Greedy Algorithm for Maximum Independent Set](https://semidoc.github.io/greedyMIS)
 
+[structs as keys for unordered_sets in c++](https://www.techiedelight.com/use-struct-key-std-unordered_map-cpp/)
 
-
-
-
-
-
-	
 
 
