@@ -60,6 +60,24 @@ return |S|
 
 #### Exploring Ties
 
+## Input File
+
+The program takes a text file as first argument.
+
+The first line should contain the total number of nodes.
+
+For the next N lines, line n contains the id's of nodes that share an edge with n, delimited by " ".
+
+The following input corresponds to a graph of four nodes and three edges.
+
+````
+4
+1 2
+0
+0 3
+2
+````
+
 ## Acknowledgements 
 
 CS 4820 Problem Set X

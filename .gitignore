@@ -34,3 +34,7 @@
 # Codeblocks
 *.layout
 *.cbp
+*.depend
+
+# testfiles
+*.txt 
