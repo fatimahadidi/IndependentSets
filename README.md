@@ -63,7 +63,9 @@ return |S|
 ## Acknowledgements 
 
 CS 4820 Problem Set X
+
 Kleinberg, Jon, and Éva Tardos. Algorithm Design. Pearson, 2014.
+
 [Greedy Algorithm for Maximum Independent Set](https://semidoc.github.io/greedyMIS)
 
 
