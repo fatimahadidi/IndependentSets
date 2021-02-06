@@ -68,15 +68,17 @@ The first line should contain the total number of nodes.
 
 For the next N lines, line n contains the id's of nodes that share an edge with n, delimited by " ".
 
-The following input corresponds to a graph of four nodes and three edges.
+The following input corresponds to a graph of five nodes and five edges.
 
 ````
-4
-1 2
+5
+1 2 4
 0
-0 3
+0 3 4
 2
+0 2
 ````
+![](graph.png?raw=true)
 
 ## Acknowledgements 
 
