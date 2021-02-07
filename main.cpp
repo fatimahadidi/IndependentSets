@@ -3,10 +3,11 @@
 #include <string>
 #include <vector>
 #include <queue>
+#include <algorithm>
 
-#include "Node.h"
 #include "EdgeSet.h"
 #include "utils.h"
+#include "NodeSet.h"
 
 
 using std::string;
@@ -27,7 +28,9 @@ int main(int argc, char *argv[])
 
     Node *nodes[numNodes];
 
-    std::priority_queue<Node> orderedNodes = std::priority_queue<Node>();
+    //std::priority_queue<Node> orderedNodes = std::priority_queue<Node>();
+
+    NodeSet orderedNodes = NodeSet();
 
     EdgeSet edges = EdgeSet();
 
@@ -46,31 +49,45 @@ int main(int argc, char *argv[])
             n->addNeighbor(neigh);
             edges.add(i, neigh);
         }
-
         nodes[i] = n;
-        orderedNodes.push(*n);
+
+        orderedNodes.add(*n);
+
+        //orderedNodes.push(*n);
     }
+
+    orderedNodes.sort();
+
+    //std::cout << "num nodes: " << orderedNodes.numNodes() << std::endl;
+    //std::cout << "num edges: " << edges.numEdges() << std::endl;
 
     //test greedy alg
 
     while (!edges.isEmpty()) {
-        Node n = orderedNodes.top();
+        Node n = orderedNodes.getLargestNode();
+
+        //std::cout << "largest node id: " << n.getID() << std::endl;
 
         for (int neigh : *n.neighbors) {
             edges.remove(n.getID(), neigh);
             nodes[neigh]->removeNeighbor(n.getID());
         }
-        orderedNodes.pop();
+
+        orderedNodes.sort();
+
+        //std::sort(orderedNodes.begin(), orderedNodes.end() );
     }
 
-    if (orderedNodes.empty()) {
+    if (orderedNodes.isEmpty()) {
         std::cout << "No independent set found\n";
     } else {
 
-        while (!orderedNodes.empty()) {
-            Node n = orderedNodes.top();
+        std::cout << "independent set of size " << orderedNodes.numNodes() << " found:"<< std::endl;
+
+        while (!orderedNodes.isEmpty()) {
+            Node n = orderedNodes.getLargestNode();
             std::cout << n.getID() << std::endl;
-            orderedNodes.pop();
+
         }
 
     }

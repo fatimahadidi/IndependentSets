@@ -16,3 +16,7 @@ void EdgeSet::remove(int x, int y) {
 bool EdgeSet::isEmpty() {
   return edges.empty();
 }
+
+int EdgeSet::numEdges() {
+  return edges.size();
+}

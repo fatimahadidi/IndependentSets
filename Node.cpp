@@ -10,7 +10,7 @@ Node::Node(int nodeID)
 }
 
 bool Node::operator<(const Node &other) const{
-  return nodeSize > other.nodeSize;
+  return nodeSize < other.nodeSize;
 }
 
 void Node::addNeighbor(int nodeID) {
