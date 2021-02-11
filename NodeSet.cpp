@@ -3,21 +3,21 @@
 
 NodeSet::NodeSet()
 {
-  nodes = std::vector<Node>();
+  nodes = std::vector<Node*>();
 }
 
-void NodeSet::add(Node n) {
+void NodeSet::add(Node *n) {
   nodes.push_back(n);
 }
 
 Node NodeSet::getLargestNode() {
-  Node n = nodes.back();
+  Node *n = nodes.back();
   nodes.pop_back();
-  return n;
+  return *n;
 }
 
 void NodeSet::sort() {
-  std::sort(nodes.begin(), nodes.end());
+  std::sort(nodes.begin(), nodes.end(), NodeComparator());
 }
 
 bool NodeSet::isEmpty() {

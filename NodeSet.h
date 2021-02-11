@@ -9,7 +9,7 @@ class NodeSet
   public:
     NodeSet();
     void sort();
-    void add(Node n);
+    void add(Node *n);
     Node getLargestNode();
     bool isEmpty();
     int numNodes();
@@ -17,7 +17,14 @@ class NodeSet
   protected:
 
   private:
-    std::vector<Node> nodes;
+    std::vector<Node*> nodes;
+};
+
+struct NodeComparator {
+    bool operator () (const Node* a, const Node* b) {
+        return a->nodeSize < b->nodeSize;
+    }
+
 };
 
 #endif // NODESET_H
