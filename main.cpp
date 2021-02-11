@@ -12,9 +12,9 @@
 
 using std::string;
 
+
 int main(int argc, char *argv[])
 {
-
 
     std::ifstream file(argv[1]);
     string str;
@@ -34,26 +34,30 @@ int main(int argc, char *argv[])
 
     EdgeSet edges = EdgeSet();
 
-
-    //for the next numNodes lines, fill in nodes, orderedNodes and edges
-
     for (int i = 0; i < numNodes; i++) {
-
-        getline(file, str);
-
-        std::vector<int> neighboringNodes = parseInts(str);
-
         Node *n = new Node(i);
-
-        for (int neigh: neighboringNodes) {
-            n->addNeighbor(neigh);
-            edges.add(i, neigh);
-        }
         nodes[i] = n;
+        orderedNodes.add(n);
+    }
 
-        orderedNodes.add(*n);
 
-        //orderedNodes.push(*n);
+    //process lines for the edges to fill in nodes, orderedNodes and edges
+
+    while (getline(file,str)) {
+
+        EdgeVec e = parseEdge(str);
+
+        int a = e.first;
+        int b = e.second;
+
+
+        nodes[a]->addNeighbor(b);
+
+        nodes[b]->addNeighbor(a);
+
+        //std::cout << "a.size = " << nodes[a]->nodeSize << ", b = " << nodes[b]->nodeSize << std::endl;
+
+        edges.add(a, b);
     }
 
     orderedNodes.sort();
@@ -66,9 +70,9 @@ int main(int argc, char *argv[])
     while (!edges.isEmpty()) {
         Node n = orderedNodes.getLargestNode();
 
-        //std::cout << "largest node id: " << n.getID() << std::endl;
+        //std::cout << "largest node id: " << n.getID() << " with size " << n.nodeSize << std::endl;
 
-        for (int neigh : *n.neighbors) {
+        for (int neigh : *(n.neighbors)) {
             edges.remove(n.getID(), neigh);
             nodes[neigh]->removeNeighbor(n.getID());
         }
