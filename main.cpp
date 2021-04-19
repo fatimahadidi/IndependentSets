@@ -6,7 +6,6 @@
 #include <algorithm>
 
 #include "EdgeSet.h"
-#include "utils.h"
 #include "NodeSet.h"
 
 
@@ -45,10 +44,10 @@ int main(int argc, char *argv[])
 
     while (getline(file,str)) {
 
-        EdgeVec e = parseEdge(str);
+        Edge e = Edge::parseEdgeStr(str);
 
-        int a = e.first;
-        int b = e.second;
+        int a = e.a;
+        int b = e.b;
 
 
         nodes[a]->addNeighbor(b);
