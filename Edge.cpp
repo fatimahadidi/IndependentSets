@@ -2,12 +2,16 @@
 #include <sstream>
 
 /**
-  construct
+  Construct an Edge between the nodes with id's x and y.
+  If x > y, Edge(x,y) will return Edge(y,x). Edge(x,x) is not allowed.
+
+  @param x and y are integer node ids
+  @returns Edge
 */
 Edge::Edge(int x, int y)
 {
   if (x == y) {
-    throw std::invalid_argument("Self-referential edges are note allowed");
+    throw std::invalid_argument("Self-referential edges are not allowed");
   } else if (x > y) {
     a = y;
     b = x;
@@ -15,12 +19,17 @@ Edge::Edge(int x, int y)
     a = x;
     b = y;
   }
-  //ctor
 }
 
-bool Edge::operator==(const Edge &other) const {
+
+/**
+  Defines the == operator on Edges.
+*/
+bool Edge::operator==(const Edge &other) const
+{
   return a == other.a && b == other.b;
 }
+
 
 /**
   Parses a string of two numbers separated by a space into an Edge
@@ -43,5 +52,4 @@ Edge Edge::parseEdgeStr(std::string str) {
   int b = stoi(s);
 
   return Edge(a,b);
-
 }

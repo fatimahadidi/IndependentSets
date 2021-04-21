@@ -1,3 +1,4 @@
+/** GNU AFFERO GENERAL PUBLIC LICENSE*/
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -56,7 +57,7 @@ int main(int argc, char *argv[])
 
         //std::cout << "a.size = " << nodes[a]->nodeSize << ", b = " << nodes[b]->nodeSize << std::endl;
 
-        edges.add(a, b);
+        edges.addEdge(e);
     }
 
     orderedNodes.sort();
@@ -94,13 +95,6 @@ int main(int argc, char *argv[])
         }
 
     }
-
-
-
-
-
-
-
 
 
     return 0;

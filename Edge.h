@@ -14,6 +14,7 @@
 
   Edge(a,b).equals(Edge(b,a)) holds.
   If a < b, Edge(a,b) returns Edge(b,a).
+  Edge(a,a) is not allowed.
 */
 class Edge
 {
@@ -28,6 +29,10 @@ class Edge
 
 };
 
+
+/**
+  Custom Hash for Edges
+*/
 class EdgeHash {
 public:
   std::size_t operator() (const Edge &e) const {
