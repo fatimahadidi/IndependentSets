@@ -1,28 +1,32 @@
+/** GNU AFFERO GENERAL PUBLIC LICENSE*/
 #ifndef NODESET_H
 #define NODESET_H
 
 #include "Node.h"
 #include <vector>
 
+
+/**
+    NodeSet provides the functionality of a priority queue for Nodes
+*/
 class NodeSet
 {
   public:
     NodeSet();
+    bool isEmpty();
+    int numNodes();
     void sort();
     void add(Node *n);
     Node getLargestNode();
-    bool isEmpty();
-    int numNodes();
-
-  protected:
 
   private:
     std::vector<Node*> nodes;
 };
 
+/** Custom comparator for comparing nodes by size*/
 struct NodeComparator {
-    bool operator () (const Node* a, const Node* b) {
-        return a->nodeSize < b->nodeSize;
+    bool operator () (Node* a, Node* b) {
+        return a->getSize() < b->getSize();
     }
 
 };
