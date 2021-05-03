@@ -24,7 +24,7 @@ The difference between the polynomial and exponential time algorithms depend on 
 ### Most Neighbors Removed - Ties ignored
 
 ```
-Define Most-Neighbors-Independent-Set:
+Define Most-Neighbors-Removed:
 
 	Let S be a sortable set of nodes where |S| = |V|
 
@@ -46,7 +46,7 @@ Define Most-Neighbors-Independent-Set:
 ```
 
 
-### Fewest Neighbors Selected - Ties Ignored 
+### Least Neighbors Selected - Ties Ignored 
 
 
 ## Input File

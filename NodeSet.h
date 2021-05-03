@@ -21,6 +21,9 @@ class NodeSet
     Node getLargestNode();
 
   private:
+    long numTies;
+    long currentMax;
+    long currentMaxNode;
     std::vector<Node*> nodes;
 };
 
