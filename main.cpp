@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
     std::ifstream file(argv[1]);
     string str;
 
-    int numNodes;
+    long numNodes;
     //int numEdges;
 
     getline(file, str);
@@ -47,8 +47,8 @@ int main(int argc, char *argv[])
 
         Edge e = Edge::parseEdgeStr(str);
 
-        int a = e.a;
-        int b = e.b;
+        long a = e.a;
+        long b = e.b;
 
 
         nodes[a]->addNeighbor(b);

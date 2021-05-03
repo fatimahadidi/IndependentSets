@@ -7,10 +7,10 @@
   @param nodeID: int
   @returns Node(nodeID)
 */
-Node::Node(int nodeID)
+Node::Node(long nodeID)
 {
   id = nodeID;
-  neighbors = new std::unordered_set<int>();
+  neighbors = new std::unordered_set<long>();
 }
 
 
@@ -28,7 +28,7 @@ bool Node::operator<( Node &other) {
   Adds a neighboring node's id to this node's neighbors.
   @param nodeID is the id of the node to add
 */
-void Node::addNeighbor(int nodeID) {
+void Node::addNeighbor(long nodeID) {
   neighbors->insert(nodeID);
   nodeSize++;
 }
@@ -38,17 +38,17 @@ void Node::addNeighbor(int nodeID) {
   Remove a neighboring node's id from this node's neighbors.
   @param nodeID is the id of the node to remove
 */
-void Node::removeNeighbor(int nodeID) {
+void Node::removeNeighbor(long nodeID) {
   neighbors->erase(nodeID);
-  nodeSize = std::max(0, nodeSize - 1);
+  nodeSize =(nodeSize == 0) ? 0 : nodeSize - 1;
 }
 
 /** Getter for Node id */
-int Node::getID() {
+long Node::getID() {
   return id;
 }
 
 /** Getter for Node size*/
-int Node::getSize() {
+long Node::getSize() {
   return nodeSize;
 }

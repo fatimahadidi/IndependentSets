@@ -10,19 +10,19 @@
 class Node
 {
   public:
-    Node(int nodeID);
-    std::unordered_set<int> *neighbors;
+    Node(long nodeID);
+    std::unordered_set<long> *neighbors;
 
-    int getSize();
-    int getID();
-    void addNeighbor(int nodeID);
-    void removeNeighbor(int nodeID);
+    long getSize();
+    long getID();
+    void addNeighbor(long nodeID);
+    void removeNeighbor(long nodeID);
 
     bool operator < ( Node& other) ;
 
   protected:
-    int id;
-    int nodeSize = 0;
+    long id;
+    long nodeSize = 0;
 };
 
 #endif // NODE_H

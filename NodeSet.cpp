@@ -19,7 +19,7 @@ bool NodeSet::isEmpty() {
 
 
 /** Returns the number of Nodes in this set */
-int NodeSet::numNodes() {
+long NodeSet::numNodes() {
   return nodes.size();
 }
 

@@ -19,10 +19,10 @@
 class Edge
 {
   public:
-    Edge(int x, int y);
+    Edge(long x, long y);
 
-    int a;
-    int b;
+    long a;
+    long b;
 
     bool operator == (const Edge &other) const;
     static Edge parseEdgeStr(std::string str);
@@ -36,7 +36,7 @@ class Edge
 class EdgeHash {
 public:
   std::size_t operator() (const Edge &e) const {
-    return (std::hash<int>()(e.a)) ^ (std::hash<int>()(e.b));
+    return (std::hash<long>()(e.a)) ^ (std::hash<long>()(e.b));
   }
 
 };

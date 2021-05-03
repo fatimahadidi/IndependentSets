@@ -14,7 +14,8 @@ class NodeSet
   public:
     NodeSet();
     bool isEmpty();
-    int numNodes();
+    long numNodes();
+
     void sort();
     void add(Node *n);
     Node getLargestNode();

@@ -8,7 +8,7 @@
   @param x and y are integer node ids
   @returns Edge
 */
-Edge::Edge(int x, int y)
+Edge::Edge(long x, long y)
 {
   if (x == y) {
     throw std::invalid_argument("Self-referential edges are not allowed");
@@ -46,10 +46,10 @@ Edge Edge::parseEdgeStr(std::string str) {
   const char delim = ' ';
 
   std::getline(ss, s, delim);
-  int a = stoi(s);
+  long a = stol(s);
 
   std::getline(ss, s, delim);
-  int b = stoi(s);
+  long b = stol(s);
 
   return Edge(a,b);
 }

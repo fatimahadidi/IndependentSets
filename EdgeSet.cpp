@@ -18,7 +18,7 @@ bool EdgeSet::isEmpty() {
 
 
 /** Returns the number of edges in the set*/
-int EdgeSet::numEdges() {
+long EdgeSet::numEdges() {
   return edges.size();
 }
 
@@ -27,7 +27,7 @@ int EdgeSet::numEdges() {
   Adds an edge between nodes with id's x and y to the set
   @param x, y are integer node ids
 */
-void EdgeSet::add(int x, int y) {
+void EdgeSet::add(long x, long y) {
   edges.insert(Edge(x,y));
 }
 
@@ -36,7 +36,7 @@ void EdgeSet::add(int x, int y) {
   Removes the edge between node ids x and y from this set
   @param x, y are integer node ids
 */
-void EdgeSet::remove(int x, int y) {
+void EdgeSet::remove(long x, long y) {
   edges.erase(Edge(x,y));
 }
 

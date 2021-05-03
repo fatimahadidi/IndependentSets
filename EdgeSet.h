@@ -14,9 +14,9 @@ class EdgeSet
   public:
     EdgeSet();
     bool isEmpty();
-    int numEdges();
-    void add(int x, int y);
-    void remove(int x, int y);
+    long numEdges();
+    void add(long x, long y);
+    void remove(long x, long y);
     void addEdge(Edge e);
     void removeEdge(Edge e);
 
