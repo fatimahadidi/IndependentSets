@@ -1,9 +1,9 @@
 /** GNU AFFERO GENERAL PUBLIC LICENSE*/
 #include "EdgeSet.h"
-#include "NodeSet.h"
+#include "NodeQueue.h"
 
 
-static void mostNeighborsRemoved(Node** nodes, NodeSet *orderedNodes, EdgeSet *edges, long n){
+static NodeQueue* mostNeighborsRemoved(Node** nodes, NodeQueue* orderedNodes, EdgeSet *edges, long n){
 
   while (!edges->isEmpty()) {
 
@@ -17,4 +17,5 @@ static void mostNeighborsRemoved(Node** nodes, NodeSet *orderedNodes, EdgeSet *e
     }
   }
 
+  return orderedNodes;
 }

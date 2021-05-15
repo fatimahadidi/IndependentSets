@@ -6,6 +6,7 @@
 #include <queue>
 #include <algorithm>
 
+#include "NodeQueue.h"
 #include "MostNeighborsRemoved.cpp"
 
 
@@ -24,7 +25,7 @@ int main(int argc, char *argv[])
     numNodes = stol(str);
 
     Node *nodes[numNodes];
-    NodeSet orderedNodes = NodeSet();
+    NodeQueue orderedNodes = NodeQueue();
     EdgeSet edges = EdgeSet();
 
     for (long i = 0; i < numNodes; i++) {
@@ -47,16 +48,16 @@ int main(int argc, char *argv[])
     }
 
 
-    mostNeighborsRemoved(nodes, &orderedNodes, &edges, numNodes);
+    NodeQueue* solution = mostNeighborsRemoved(nodes, &orderedNodes, &edges, numNodes);
 
 
-    if (orderedNodes.isEmpty()) {
+    if (solution->isEmpty()) {
         std::cout << "No independent set found\n";
     } else {
-        std::cout << "independent set of size " << orderedNodes.numNodes() << " found:"<< std::endl;
+        std::cout << "independent set of size " << solution->numNodes() << " found:"<< std::endl;
 
-        while (!orderedNodes.isEmpty()) {
-            Node n = orderedNodes.getLastNode();
+        while (!solution->isEmpty()) {
+            Node n = solution->getLastNode();
             std::cout << n.getID() << std::endl;
         }
     }
