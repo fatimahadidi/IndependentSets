@@ -56,7 +56,7 @@ int main(int argc, char *argv[])
         std::cout << "independent set of size " << orderedNodes.numNodes() << " found:"<< std::endl;
 
         while (!orderedNodes.isEmpty()) {
-            Node n = orderedNodes.getLargestNode();
+            Node n = orderedNodes.getLastNode();
             std::cout << n.getID() << std::endl;
         }
     }

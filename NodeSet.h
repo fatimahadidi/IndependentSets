@@ -16,9 +16,10 @@ class NodeSet
     bool isEmpty();
     long numNodes();
 
-    void sort();
+    void sortAscending();
+    void sortDescending();
     void add(Node *n);
-    Node getLargestNode();
+    Node getLastNode();
 
   private:
     long numTies;
@@ -27,10 +28,21 @@ class NodeSet
     std::vector<Node*> nodes;
 };
 
-/** Custom comparator for comparing nodes by size*/
-struct NodeComparator {
+/** Custom comparator for comparing nodes by the number of neighbors.
+    Here, Node a is less than Node b if it has fewer neighbors than Node b*/
+
+struct NodeComparatorFewestNeighs {
     bool operator () (Node* a, Node* b) {
         return a->getSize() < b->getSize();
+    }
+
+};
+
+/** Custom comparator for comparing nodes by the number of neighbors.
+    Here, Node a is less than Node b if it has more neighbors than Node b*/
+struct NodeComparatorMostNeighs {
+    bool operator () (Node* a, Node* b) {
+        return a->getSize() > b->getSize();
     }
 
 };

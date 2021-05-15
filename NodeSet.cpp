@@ -38,7 +38,7 @@ void NodeSet::add(Node *n) {
 
   @returns largest Node (most neighbors) in the set
 */
-Node NodeSet::getLargestNode() {
+Node NodeSet::getLastNode() {
   Node *n = nodes.back();
   nodes.pop_back();
   return *n;
@@ -46,12 +46,18 @@ Node NodeSet::getLargestNode() {
 
 
 /**
-  Sorts the Nodes currently in the set, largest first
+  Sorts the Nodes currently in the set, fewest neighbors first
 */
-void NodeSet::sort() {
-  std::sort(nodes.begin(), nodes.end(), NodeComparator());
+void NodeSet::sortAscending() {
+  std::sort(nodes.begin(), nodes.end(), NodeComparatorFewestNeighs());
 }
 
 
 
+/**
+  Sorts the Nodes currently in the set, most neighbors first
+*/
+void NodeSet::sortDescending() {
+  std::sort(nodes.begin(), nodes.end(), NodeComparatorMostNeighs());
+}
 

@@ -1,4 +1,4 @@
-
+/** GNU AFFERO GENERAL PUBLIC LICENSE*/
 #include "EdgeSet.h"
 #include "NodeSet.h"
 
@@ -7,9 +7,9 @@ static void mostNeighborsRemoved(Node** nodes, NodeSet *orderedNodes, EdgeSet *e
 
   while (!edges->isEmpty()) {
 
-    orderedNodes->sort();
+    orderedNodes->sortAscending();
 
-    Node n = orderedNodes->getLargestNode();
+    Node n = orderedNodes->getLastNode();
 
     for (int neigh : *(n.neighbors)) {
         edges->remove(n.getID(), neigh);
