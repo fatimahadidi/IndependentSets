@@ -7,15 +7,20 @@ static NodeQueue* fewestNeighborsSelected(Node** nodes, NodeQueue* orderedNodes,
 
   NodeQueue* solution = new NodeQueue();
 
+
   while (!orderedNodes->isEmpty()) {
 
     orderedNodes->sortDescending();
 
     Node n = orderedNodes->getLastNode();
+    solution->add(&n);
 
     for (int neigh : *(n.neighbors)) {
-      //orderedNodes->remove(nodes[neigh])
+      orderedNodes->remove(nodes[neigh]);
     }
-  }
+    orderedNodes->remove(&n);
 
+  }
+    return solution;
 }
+

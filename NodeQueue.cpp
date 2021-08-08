@@ -32,6 +32,20 @@ void NodeQueue::add(Node *n) {
   nodes.push_back(n);
 }
 
+/**
+  Removes Node pointer n
+  @param n is a Node pointer
+  O(size of queue)
+*/
+void NodeQueue::remove(Node *n) {
+  int i = 0;
+  while (nodes[i] != n && i < nodes.size()) {
+    i++;
+  }
+  if (i < nodes.size()) {
+    nodes.erase(nodes.begin()+i);
+  }
+}
 
 /**
   Returns the node (or one of the nodes in case of a tie) with the most neighbors in the set
